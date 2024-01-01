@@ -31,8 +31,8 @@ export default function App() {
 
   return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} onLayout={onLayoutRootView}>
-      <Text style={globalStyles.h3Bold}>Inter Black</Text>
-      <Text style={globalStyles.h3}>Platform Default</Text>
+      <Text style={globalStyles.h3Bold}>Yukarı</Text>
+      <Text style={globalStyles.h3}>Aşağı</Text>
       <StatusBar style="dark" />
     </View>
   );
