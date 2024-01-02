@@ -1,9 +1,10 @@
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { globalStyles} from './src/styles/globalSytels';
+import { useGlobalStyles } from './src/styles/globalSytels';
+import { lightColors } from './src/styles/colors';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -19,6 +20,8 @@ export default function App() {
     'Inter-SemiBoldItalic': require('./assets/fonts/Inter-SemiBoldItalic.ttf')
   });
 
+  const styles = useGlobalStyles(); // Hook'u burada çağırın
+
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
       await SplashScreen.hideAsync();
@@ -30,10 +33,9 @@ export default function App() {
   }
 
   return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} onLayout={onLayoutRootView}>
-      <Text style={globalStyles.h3Bold}>Yukarı</Text>
-      <Text style={globalStyles.h3}>Aşağı</Text>
-      <StatusBar style="dark" />
+    <View style={styles.container} onLayout={onLayoutRootView}>
+      <Text style={styles.h1_Bold}>Aşağı</Text>
+      <StatusBar style="auto" />
     </View>
   );
 };
