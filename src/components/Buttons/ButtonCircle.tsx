@@ -1,27 +1,30 @@
 import React from 'react';
-import { TouchableOpacity, Text, useColorScheme } from 'react-native';
+import { TouchableOpacity, ViewStyle, useColorScheme } from 'react-native';
 import { getButtonCircleStyles } from './ButtonCircle.styles';
 
 type ButtonProps = {
-    title: string;
     onPress: () => void;
     type: 'System' | 'Accent';
     state: 'Enabled' | 'Pressed' | 'Disabled';
     styleType: 'Filled' | 'Subtle';
+    icon?: React.ReactNode;
 };
   
-const Button: React.FC<ButtonProps> = ({ title, onPress, type, state, styleType }) => {
+const ButtonCircle: React.FC<ButtonProps> = ({ onPress, type, state, styleType, icon }) => {
   const theme = useColorScheme() || 'light';
-  const styles = getButtonCircleStyles(theme, type, state, styleType);
+  // getButtonCircleStyles'dan hem stil hem de ikon rengini al
+  const { buttonStyle, iconColor } = getButtonCircleStyles(theme, type, state, styleType);
 
   return (
     <TouchableOpacity 
-      style={styles.buttonStyle}
+      style={buttonStyle as ViewStyle}
       onPress={onPress} 
       disabled={state === 'Disabled'}
     >
+      {/* İkon rengini dinamik olarak ayarla */}
+      {icon && React.cloneElement(icon as React.ReactElement, { fill: iconColor })}
     </TouchableOpacity>
   );
 };
 
-export default Button;
+export default ButtonCircle;

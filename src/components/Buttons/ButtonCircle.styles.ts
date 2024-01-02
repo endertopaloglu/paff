@@ -14,22 +14,24 @@ export const getButtonCircleStyles = (
 ) => {
   const colors = getColors();
 
-  let backgroundColor, borderColor, textColor;
+  let backgroundColor, iconColor;
 
   if (type === 'System') {
     backgroundColor = colors.System_Solid_strong;
+    iconColor = colors.Foreground_primary;
   } else if (type === 'Accent') {
     backgroundColor = colors.Main_Solid_light;
+    iconColor = colors.Foreground_primary;
   }
 
   if (styleType === 'Subtle') {
-    backgroundColor = 'transparent';
-    borderColor = textColor;
+    backgroundColor = colors.System_Adaptive_light;
+    iconColor = colors.Foreground_primary;
   }
 
   if (state === 'Disabled') {
     backgroundColor = colors.Disabled_Background;
-    textColor = colors.Disabled_Content;
+    iconColor = colors.Disabled_Content;
   }
 
   return {
@@ -37,6 +39,11 @@ export const getButtonCircleStyles = (
       backgroundColor,
       padding: distances._8,
       borderRadius: radius._full,
-    }
+      width:36,
+      height:36,
+      alignItems: 'center',
+      justifyContent:'center',
+    },
+    iconColor
   };
 };
