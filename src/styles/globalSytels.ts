@@ -72,6 +72,13 @@ export const useGlobalStyles = () => {
       alignItems: "center",
       backgroundColor:colors.Bg_white,
     },
+    // Switch
+    switchActive: {
+      color: colors.Main_Solid_light,
+    },
+    switchBackground:{
+      backgroundColor: colors.System_Adaptive_medium,
+    }
   });
 
   // Tüm stilleri StyleSheet ile oluşturun
