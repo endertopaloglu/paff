@@ -5,7 +5,6 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { typography } from './src/styles/typography';
 
-
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
@@ -34,8 +33,8 @@ export default function App() {
 
   return (
     <View onLayout={onLayoutRootView}>
-      <Text style={styles.h1}>Aşağı</Text>
+      <Text style={styles.h1}>Tüm content burada yer alacak</Text>
       <StatusBar style="auto" />
     </View>
   );
-};
+}

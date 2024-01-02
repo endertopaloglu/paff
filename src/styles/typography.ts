@@ -1,6 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, useColorScheme } from 'react-native';
 import { lightColors, darkColors } from './colors';
-import { useColorScheme } from 'react-native'; // useColorScheme hook'unu import edin
 
 export const typography = () => {
   const scheme = useColorScheme(); // Tema modunu al
