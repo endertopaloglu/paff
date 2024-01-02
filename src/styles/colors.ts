@@ -1,5 +1,3 @@
-import { StyleSheet } from 'react-native';
-
 //Colors
 export const lightColors = {
     Bg_white: "#FFFFFF",

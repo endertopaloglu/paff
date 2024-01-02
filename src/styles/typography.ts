@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { lightColors, darkColors } from './colors'; // Renkleri import edin
+import { lightColors, darkColors } from './colors';
 import { useColorScheme } from 'react-native'; // useColorScheme hook'unu import edin
 
-export const useGlobalStyles = () => {
+export const typography = () => {
   const scheme = useColorScheme(); // Tema modunu al
   const colors = scheme === 'dark' ? darkColors : lightColors; // Temaya göre renkleri seç
 
@@ -64,20 +64,6 @@ export const useGlobalStyles = () => {
       letterSpacing: 0,
       fontFamily: "Inter-Regular",
       color: colors.Foreground_primary,
-    },
-    // Main
-    container: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor:colors.Bg_white,
-    },
-    // Switch
-    switchActive: {
-      color: colors.Main_Solid_light,
-    },
-    switchBackground:{
-      backgroundColor: colors.System_Adaptive_medium,
     }
   });
 
