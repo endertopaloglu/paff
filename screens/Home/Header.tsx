@@ -4,6 +4,7 @@ import { View, Text } from 'react-native';
 import { distances, systemSizes } from '../../src/styles/sizes';
 import { typography } from '../../src/styles/typography';
 import ButtonCircle from '../../src/components/Buttons/ButtonCircle';
+import Button from '../../src/components/Buttons/Button';
 import { BellIcon, MegaphoneIcon } from '../../assets/icons/icons';
 
 const Header = () => {

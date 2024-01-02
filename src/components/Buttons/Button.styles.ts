@@ -10,9 +10,9 @@ type ButtonStyleType = 'Filled' | 'Subtle';
 
 export const getButtonStyles = (
   theme: Theme, 
-  type: ButtonType, 
-  state: ButtonState, 
-  styleType: ButtonStyleType
+  type?: ButtonType, 
+  state?: ButtonState, 
+  styleType?: ButtonStyleType
 ) => {
   const colors = getColors();
   const typo = typography();
