@@ -1,6 +1,4 @@
-// Button.styles.ts
 import { getColors } from '../../styles/colors';
-import { typography } from '../../styles/typography';
 import { distances, radius } from '../../styles/sizes';
 
 type Theme = 'light' | 'dark';
@@ -8,14 +6,13 @@ type ButtonType = 'System' | 'Accent';
 type ButtonState = 'Enabled' | 'Pressed' | 'Disabled';
 type ButtonStyleType = 'Filled' | 'Subtle';
 
-export const getButtonStyles = (
+export const getButtonCircleStyles = (
   theme: Theme, 
   type: ButtonType, 
   state: ButtonState, 
   styleType: ButtonStyleType
 ) => {
   const colors = getColors();
-  const typo = typography();
 
   let backgroundColor, borderColor, textColor;
 
@@ -38,12 +35,8 @@ export const getButtonStyles = (
   return {
     buttonStyle: {
       backgroundColor,
-      paddingVertical: distances._12,
-      paddingHorizontal: distances._16,
-      borderRadius: radius._6,
-    },
-    textStyle: {
-      ...typo.buttonMedium,
-    },
+      padding: distances._8,
+      borderRadius: radius._full,
+    }
   };
 };

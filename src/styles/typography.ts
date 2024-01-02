@@ -1,11 +1,10 @@
 import { StyleSheet, useColorScheme } from 'react-native';
-import { lightColors, darkColors } from './colors';
+import { getColors } from './colors';
 
 export const typography = () => {
-  const scheme = useColorScheme(); // Tema modunu al
-  const colors = scheme === 'dark' ? darkColors : lightColors; // Temaya göre renkleri seç
+  const scheme = useColorScheme();
+  const colors = getColors();
 
-  // Base font style tanımları, tema rengine göre renk ataması ile
   const baseFontStyle = StyleSheet.create({
     h1: {
       fontSize: 48,
@@ -63,7 +62,16 @@ export const typography = () => {
       letterSpacing: 0,
       fontFamily: "Inter-Regular",
       color: colors.Foreground_primary,
-    }
+    },
+    //Button
+    buttonMedium:{
+      fontSize: 16,
+      lineHeight: 24,
+      letterSpacing: -0.1,
+      fontFamily: "Inter-Regular",
+      textAlign:"center",
+      color: colors.Foreground_white,
+    },
   });
 
   // Tüm stilleri StyleSheet ile oluşturun

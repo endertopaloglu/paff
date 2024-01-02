@@ -1,5 +1,6 @@
+import { useColorScheme } from 'react-native';
 //Colors
-export const lightColors = {
+  const lightColors = {
     Bg_white: "#FFFFFF",
     Bg_grayLight: "#F9FAFB",
     Bg_grayMedium: "#F0F2F5",
@@ -76,7 +77,7 @@ export const lightColors = {
     segmentActive:"#FFFFFF",
   };
 
-  export const darkColors = {
+  const darkColors = {
     Bg_white: "#181A20",
     Bg_grayLight: "#1F2229",
     Bg_grayMedium: "#2D3138",
@@ -153,3 +154,8 @@ export const lightColors = {
     segmentActive:"#FFFFFF",
   };
   
+  export const getColors = () => {
+    const colorScheme = useColorScheme();
+    const colors = colorScheme === 'dark' ? darkColors : lightColors;
+    return colors;
+  };

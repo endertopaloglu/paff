@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { typography } from './src/styles/typography';
+import Home from './screens/Home/Home';
+import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -19,8 +19,6 @@ export default function App() {
     'Inter-SemiBoldItalic': require('./assets/fonts/Inter-SemiBoldItalic.ttf')
   });
 
-  const styles = typography();
-
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
       await SplashScreen.hideAsync();
@@ -33,7 +31,7 @@ export default function App() {
 
   return (
     <View onLayout={onLayoutRootView}>
-      <Text style={styles.h1}>Tüm content burada yer alacak</Text>
+      <Home />
       <StatusBar style="auto" />
     </View>
   );

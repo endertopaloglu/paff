@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, useColorScheme } from 'react-native';
-import { getButtonStyles } from './Button.styles';
+import { getButtonCircleStyles } from './ButtonCircle.styles';
 
 type ButtonProps = {
     title: string;
@@ -12,7 +12,7 @@ type ButtonProps = {
   
 const Button: React.FC<ButtonProps> = ({ title, onPress, type, state, styleType }) => {
   const theme = useColorScheme() || 'light';
-  const styles = getButtonStyles(theme, type, state, styleType);
+  const styles = getButtonCircleStyles(theme, type, state, styleType);
 
   return (
     <TouchableOpacity 
@@ -20,7 +20,6 @@ const Button: React.FC<ButtonProps> = ({ title, onPress, type, state, styleType 
       onPress={onPress} 
       disabled={state === 'Disabled'}
     >
-      <Text style={styles.textStyle}>{title}</Text>
     </TouchableOpacity>
   );
 };
