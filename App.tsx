@@ -30,7 +30,7 @@ export default function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView}>
+    <View onLayout={onLayoutRootView} style={{flex:1}}>
       <Home />
       <StatusBar style="auto" />
     </View>
