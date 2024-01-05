@@ -1,8 +1,7 @@
-import { StyleSheet, useColorScheme } from 'react-native';
-import { getColors } from './colors';
+import { StyleSheet } from 'react-native';
+import { getColors } from '@styles/colors';
 
 export const typography = () => {
-  const scheme = useColorScheme();
   const colors = getColors();
 
   const baseFontStyle = StyleSheet.create({
