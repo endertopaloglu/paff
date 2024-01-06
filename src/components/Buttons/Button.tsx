@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { distances, typography } from '@styles/coreStyles';
 
 // Button Props Tip Tanımı
 interface ButtonProps {
@@ -9,6 +10,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ size = 'medium', children, style }) => {
+  const buttonTextStyle = typography();
   let buttonStyle: ViewStyle;
 
   switch (size) {
@@ -24,15 +26,17 @@ const Button: React.FC<ButtonProps> = ({ size = 'medium', children, style }) => 
 
   return (
     <TouchableOpacity style={[buttonStyle, style]}>
-      <Text style={styles.text}>{children}</Text>
+      <Text style={buttonTextStyle.buttonMedium}>{children}</Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   largeButton: {
-    padding: 20,
+    height:48,
+    paddingHorizontal:distances._16,
     backgroundColor: 'blue',
+    justifyContent:"center",
   },
   mediumButton: {
     padding: 15,
@@ -41,11 +45,7 @@ const styles = StyleSheet.create({
   smallButton: {
     padding: 10,
     backgroundColor: 'blue',
-  },
-  text: {
-    color: 'white',
-    textAlign: 'center',
-  } as TextStyle
+  }
 });
 
 export default Button;

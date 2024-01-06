@@ -1,5 +1,5 @@
-import { useColorScheme } from 'react-native';
 //Colors
+import { useColorScheme } from 'react-native';
   const lightColors = {
     Bg_white: "#FFFFFF",
     Bg_grayLight: "#F9FAFB",
@@ -159,3 +159,5 @@ import { useColorScheme } from 'react-native';
     const colors = colorScheme === 'dark' ? darkColors : lightColors;
     return colors;
   };
+
+  // Color End //

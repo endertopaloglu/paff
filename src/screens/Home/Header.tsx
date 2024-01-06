@@ -44,7 +44,7 @@ const Header = () => {
             I'm a primary button
           </Text>
         </TouchableOpacity>
-        <Button style={{marginTop:distances._20}}>Deneme</Button>
+        <Button style={{marginTop:distances._20}} size='large'>Deneme</Button>
       </View>
     </View>
   );
