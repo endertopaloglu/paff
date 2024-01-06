@@ -42,7 +42,14 @@ const Header = () => {
             I'm a primary button
           </Text>
         </TouchableOpacity>
+<<<<<<< HEAD
         <Button style={{marginTop:distances._20}} size='large'>Deneme</Button>
+=======
+        <Button style={{marginTop:distances._20}}>
+        <MegaphoneIcon width={20} height={20} fill={colors.Foreground_primary} />
+          I'm a primary button
+          </Button>
+>>>>>>> 8e2949a (deneme)
       </View>
     </View>
   );
