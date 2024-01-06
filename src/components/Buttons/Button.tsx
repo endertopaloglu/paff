@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, TextStyle, ViewStyle } from 'react-native';
+import { TouchableOpacity, Text, TextStyle, ViewStyle, StyleSheet } from 'react-native';
 import { distances, typography, getColors, radius } from '@styles/coreStyles';
 
 // Button Props Tip Tanımı
@@ -35,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({ size = 'large', type = "filled", childr
       break;
     default:
       buttonStyle = {
-        height:40,
+        height:32,
       };
   }
 

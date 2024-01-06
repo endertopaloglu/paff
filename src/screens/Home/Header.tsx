@@ -1,55 +1,37 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { getColors, distances, radius, systemSizes, typography } from '@styles/coreStyles';
+import { View, StyleSheet } from 'react-native';
+import { getColors, distances } from '@styles/coreStyles';
 import { BellIcon, MegaphoneIcon } from '@icons/icons';
-import ButtonCircle from '@components/Buttons/ButtonCircle';
-import Button from '@components/Buttons/Button';
+import ButtonIcon from '@components/Buttons/ButtonIcon';
+import Logo from '@assets/Logo.svg';
 
 const Header = () => {
   const colors = getColors();
-  const typo = typography();
 
+  const styles = StyleSheet.create({
+    mainContainer: {
+      backgroundColor: colors.Bg_white,
+      flex: 1,
+    },
+    headerContainer: {
+      backgroundColor: colors.Adaptive_grayMedium,
+      paddingHorizontal: distances._20,
+      paddingTop: 70,
+      paddingBottom: distances._16,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+    }
+  });
 
   return (
-    <View style={{ backgroundColor: colors.Bg_white, flex: 1 }}>
-      <View style={{ backgroundColor: colors.Main_Adaptive_light, paddingTop: systemSizes.ios_safeTop, paddingHorizontal: distances._20, paddingVertical: distances._16, flexDirection: "row", justifyContent: "space-between", }}>
-        <Text style={typo.h3_Bold}>Paribu</Text>
+    <View style={styles.mainContainer}>
+      <View style={styles.headerContainer}>
+        <Logo width={120} height={24} />
         <View style={{ flexDirection: "row" }}>
-          <ButtonCircle
-            onPress={() => console.log('Button pressed')}
-            type="System"
-            state="Enabled"
-            styleType="Subtle"
-            icon={<BellIcon width={20} height={20} />}
-          />
-          <ButtonCircle
-            onPress={() => console.log('Button pressed')}
-            type="System"
-            state="Enabled"
-            styleType="Subtle"
-            icon={<MegaphoneIcon width={20} height={20} />}
-          />
+          <ButtonIcon icon={<BellIcon />} type='subtle' />
+          <ButtonIcon icon={<MegaphoneIcon />} style={{ marginLeft: distances._12 }} type='subtle' />
         </View>
-      </View>
-      <View style={{ margin: distances._20, }}>
-        <TouchableOpacity style={{
-          paddingVertical: distances._16,
-          paddingHorizontal: distances._12,
-          backgroundColor: colors.System_Solid_strong,
-          borderRadius: radius._6,
-        }}>
-          <Text style={typo.buttonMedium}>
-            I'm a primary button
-          </Text>
-        </TouchableOpacity>
-<<<<<<< HEAD
-        <Button style={{marginTop:distances._20}} size='large'>Deneme</Button>
-=======
-        <Button style={{marginTop:distances._20}}>
-        <MegaphoneIcon width={20} height={20} fill={colors.Foreground_primary} />
-          I'm a primary button
-          </Button>
->>>>>>> 8e2949a (deneme)
       </View>
     </View>
   );
