@@ -25,7 +25,7 @@ const Header = () => {
   });
 
   return (
-    <View style={styles.mainContainer}>
+    <View>
       <View style={styles.headerContainer}>
         <Logo width={120} height={24} />
         <View style={{ flexDirection: "row" }}>
