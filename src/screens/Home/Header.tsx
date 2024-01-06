@@ -1,8 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { getColors } from '@styles/colors';
-import { distances, radius, systemSizes } from '@styles/sizes';
-import { typography } from '@styles/typography'
+import { getColors, distances, radius, systemSizes, typography } from '@styles/coreStyles';
 import { BellIcon, MegaphoneIcon } from '@icons/icons';
 import ButtonCircle from '@components/Buttons/ButtonCircle';
 import Button from '@components/Buttons/Button';

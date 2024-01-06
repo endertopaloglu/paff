@@ -1,6 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { distances, typography } from '@styles/coreStyles';
+import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
+import { distances, typography, radius, getColors } from '@styles/coreStyles';
 
 // Button Props Tip Tanımı
 interface ButtonProps {
@@ -34,9 +34,10 @@ const Button: React.FC<ButtonProps> = ({ size = 'medium', children, style }) => 
 const styles = StyleSheet.create({
   largeButton: {
     height:48,
+    backgroundColor: "blue",
     paddingHorizontal:distances._16,
-    backgroundColor: 'blue',
     justifyContent:"center",
+    borderRadius:radius._6,
   },
   mediumButton: {
     padding: 15,
