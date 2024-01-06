@@ -120,7 +120,7 @@ export const typography = () => {
 //-----------------------
 
 //Colors
-  export const lightColors = {
+  const lightColors = {
     Bg_white: "#FFFFFF",
     Bg_grayLight: "#F9FAFB",
     Bg_grayMedium: "#F0F2F5",
@@ -197,7 +197,7 @@ export const typography = () => {
     segmentActive:"#FFFFFF",
   };
 
-  export const darkColors = {
+  const darkColors = {
     Bg_white: "#181A20",
     Bg_grayLight: "#1F2229",
     Bg_grayMedium: "#2D3138",
