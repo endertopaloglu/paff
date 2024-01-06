@@ -10,8 +10,8 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ size = 'medium', children, style }) => {
-  const buttonTextStyle = typography();
   let buttonStyle: ViewStyle;
+  const typo = typography();
 
   switch (size) {
     case 'large':
@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({ size = 'medium', children, style }) => 
 
   return (
     <TouchableOpacity style={[buttonStyle, style]}>
-      <Text style={buttonTextStyle.buttonMedium}>{children}</Text>
+      <Text style={typo.buttonMedium}>{children}</Text>
     </TouchableOpacity>
   );
 };
