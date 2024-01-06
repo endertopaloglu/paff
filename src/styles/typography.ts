@@ -41,21 +41,21 @@ export const typography = () => {
       color: colors.Foreground_primary,
     },
     //Body
-    bodyMedium:{
+    bodyMedium: {
       fontSize: 16,
       lineHeight: 24,
       letterSpacing: -0.1,
       fontFamily: "Inter-Regular",
       color: colors.Foreground_primary,
     },
-    bodySmall:{
+    bodySmall: {
       fontSize: 14,
       lineHeight: 20,
       letterSpacing: 0,
       fontFamily: "Inter-Regular",
       color: colors.Foreground_primary,
     },
-    bodyXsmall:{
+    bodyXsmall: {
       fontSize: 12,
       lineHeight: 16,
       letterSpacing: 0,
@@ -63,53 +63,51 @@ export const typography = () => {
       color: colors.Foreground_primary,
     },
     //Button
-    buttonMedium:{
+    buttonMedium: {
       fontSize: 16,
       lineHeight: 24,
       letterSpacing: -0.1,
       fontFamily: "Inter-Regular",
-      textAlign:"center",
+      textAlign: "center",
       color: colors.Foreground_white,
     },
   });
-
-  // Tüm stilleri StyleSheet ile oluşturun
+  //Bold Fonts
   const styles = StyleSheet.create({
     ...baseFontStyle,
-    //Font bold
-  h1_Bold: {
-    ...baseFontStyle.h1,
-    fontFamily: "Inter-SemiBold", 
-  },
-  h2_Bold: {
-    ...baseFontStyle.h2,
-    fontFamily: "Inter-SemiBold", 
-  },
-  h3_Bold: {
-    ...baseFontStyle.h3,
-    fontFamily: "Inter-SemiBold",
-  },
-  h4_Bold: {
-    ...baseFontStyle.h4,
-    fontFamily: "Inter-SemiBold",
-  },
-  h5_Bold: {
-    ...baseFontStyle.h5,
-    fontFamily: "Inter-SemiBold",
-  },
-  bodyMedium_Bold: {
-    ...baseFontStyle.bodyMedium,
-    fontFamily: "Inter-SemiBold",
-    fontWeight:"600",
-  },
-  bodySmall_Bold: {
-    ...baseFontStyle.bodySmall,
-    fontFamily: "Inter-Medium",
-  },
-  bodyXsmall_Bold: {
-    ...baseFontStyle.bodyXsmall,
-    fontFamily: "Inter-Medium",
-  },
+    h1_Bold: {
+      ...baseFontStyle.h1,
+      fontFamily: "Inter-SemiBold",
+    },
+    h2_Bold: {
+      ...baseFontStyle.h2,
+      fontFamily: "Inter-SemiBold",
+    },
+    h3_Bold: {
+      ...baseFontStyle.h3,
+      fontFamily: "Inter-SemiBold",
+    },
+    h4_Bold: {
+      ...baseFontStyle.h4,
+      fontFamily: "Inter-SemiBold",
+    },
+    h5_Bold: {
+      ...baseFontStyle.h5,
+      fontFamily: "Inter-SemiBold",
+    },
+    bodyMedium_Bold: {
+      ...baseFontStyle.bodyMedium,
+      fontFamily: "Inter-SemiBold",
+      fontWeight: "600",
+    },
+    bodySmall_Bold: {
+      ...baseFontStyle.bodySmall,
+      fontFamily: "Inter-Medium",
+    },
+    bodyXsmall_Bold: {
+      ...baseFontStyle.bodyXsmall,
+      fontFamily: "Inter-Medium",
+    },
   });
 
   return styles;

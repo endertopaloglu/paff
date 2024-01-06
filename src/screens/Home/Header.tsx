@@ -5,6 +5,7 @@ import { distances, radius, systemSizes } from '@styles/sizes';
 import { typography } from '@styles/typography'
 import { BellIcon, MegaphoneIcon } from '@icons/icons';
 import ButtonCircle from '@components/Buttons/ButtonCircle';
+import Button from '@components/Buttons/Button';
 
 const Header = () => {
   const colors = getColors();
@@ -32,7 +33,7 @@ const Header = () => {
           />
         </View>
       </View>
-      <View style={{ margin: distances._20 }}>
+      <View style={{ margin: distances._20, }}>
         <TouchableOpacity style={{
           paddingVertical: distances._16,
           paddingHorizontal: distances._12,
@@ -43,6 +44,7 @@ const Header = () => {
             I'm a primary button
           </Text>
         </TouchableOpacity>
+        <Button style={{marginTop:distances._20}}>Deneme</Button>
       </View>
     </View>
   );

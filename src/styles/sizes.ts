@@ -1,3 +1,6 @@
+//Sizes
+
+//Distances
 export const distances = {
     none: 0,
     _2: 2,
@@ -16,7 +19,7 @@ export const distances = {
     _96: 96,
     _128: 128,
   };
-  
+  //Radius
   export const radius = {
     none: 0,
     _2: 2,
@@ -29,7 +32,7 @@ export const distances = {
     _24: 24,
     _full: 999,
   };
-  
+  //SystemSizes
   export const systemSizes = {
     ios_safeTop: 54,
     ios_safeBottom: 24,
