@@ -32,7 +32,17 @@ const Header = () => {
         </View>
       </View>
       <View style={{ margin: distances._20, }}>
-        <Button> I'm a primary button </Button>
+        <TouchableOpacity style={{
+          paddingVertical: distances._16,
+          paddingHorizontal: distances._12,
+          backgroundColor: colors.System_Solid_strong,
+          borderRadius: radius._6,
+        }}>
+          <Text style={typo.buttonMedium}>
+            I'm a primary button
+          </Text>
+        </TouchableOpacity>
+        <Button style={{marginTop:distances._20}} size='large'>Deneme</Button>
       </View>
     </View>
   );
