@@ -1,35 +1,41 @@
 import React from 'react';
-import { View, Text, ScrollView, Dimensions, StyleSheet, Image, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
-import { getColors, typography, distances } from '@styles/coreStyles';
+import { View, Text, ScrollView, Dimensions, StyleSheet, Image, NativeSyntheticEvent, NativeScrollEvent, Appearance } from 'react-native';
+import { getColors, typography, distances, radius } from '@styles/coreStyles';
+import ButtonLink from '@components/Buttons/ButtonLink';
 
 const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "red",
+    paddingBottom: 14,
   },
   slide: {
     width: width,
     paddingHorizontal: distances._20,
     paddingVertical: distances._12,
-    flexDirection:"row",
+    flexDirection: "row",
   },
-  content: {
-    flex:1,
+  content: {
+    flex: 1,
+    marginBottom: 12,
   },
   image: {
     width: 96,
     height: 96,
   },
   paginationDot: {
-    height: 10,
-    aspectRatio: 1,
-    borderRadius: 5,
-    backgroundColor: '#ccc',
-    marginHorizontal: 5,
+    height: 4,
+    width: 4,
+    borderRadius: radius._full,
+    backgroundColor: "rgba(255, 255, 255, 0.20)",
+    marginHorizontal: 4,
   },
   paginationDotActive: {
-    backgroundColor: '#007bff',
+    width: 12,
+    height: 4,
+    backgroundColor: '#8FA63C',
   },
   paginationContainer: {
     flexDirection: 'row',
@@ -38,17 +44,24 @@ const styles = StyleSheet.create({
   },
 });
 
+const theme = Appearance.getColorScheme();
 // Dummy data for carousel
 const slides = [
   {
     title: 'Anında alın ve satın',
     description: 'Tek tıkla 100’den fazla kripto varlığı kolayca alıp satabilirsiniz.',
-    image: require('@assets/icon.png'), // Replace with your own image
+    image: theme === 'dark'
+      ? require('@assets/banner/kolay_alsat_dark.png')
+      : require('@assets/banner/kolay_alsat.png'),
+    link: 'Kolay al/sat',
   },
   {
-    title: 'Anında alın ve satın',
-    description: 'Tek tıkla 100’den fazla kripto varlığı kolayca alıp satabilirsiniz.',
-    image: require('@assets/icon.png'), // Replace with your own image
+    title: 'Piyasaları keşfedin',
+    description: "Paribu'da listelenen 100'den fazla kripto varlıkla işlem yapabilirsiniz. ",
+    image: theme === 'dark'
+      ? require('@assets/banner/piyasalar_dark.png')
+      : require('@assets/banner/piyasalar.png'),
+    link: 'Piysalara git',
   },
   // More slides...
 ];
@@ -64,7 +77,7 @@ const SnapContainer = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.Adaptive_grayMedium }]}>
       <ScrollView
         horizontal
         pagingEnabled
@@ -75,9 +88,11 @@ const SnapContainer = () => {
         {slides.map((slide, index) => (
           <View key={index} style={styles.slide}>
             <View style={styles.content}>
-              <Text style={[typo.bodyMedium_Bold, {color:colors.Foreground_primary}]}>{slide.title}</Text>
-              <Text style={[typo.bodySmall, {color:colors.Foreground_secondary}]}>{slide.description}</Text>
-              <Text>Kolay al/sat</Text>
+              <View style={{height:60, marginBottom:6,}}>
+                <Text style={[typo.bodyCompactMedium_Bold, { color: colors.Foreground_primary, marginBottom: 2 }]}>{slide.title}</Text>
+                <Text style={[typo.bodyCompactSmall, { color: colors.Foreground_secondary }]}>{slide.description}</Text>
+              </View>
+              <ButtonLink text={slide.link} />
             </View>
             <Image source={slide.image} style={styles.image} />
           </View>

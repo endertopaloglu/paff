@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, TextStyle, ViewStyle, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, TextStyle, ViewStyle } from 'react-native';
 import { distances, typography, getColors, radius } from '@styles/coreStyles';
 
 // Button Props Tip Tanımı
