@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react';
+import "react-native-gesture-handler"
 import { View } from 'react-native';
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
-import Home from '@screens/Home/Home';
+import Navigation from '@screens/navigation';
 import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
@@ -30,9 +31,9 @@ export default function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView} style={{flex:1}}>
-      <Home />
+    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <StatusBar style="auto" />
+      <Navigation />
     </View>
   );
 }
