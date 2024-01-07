@@ -4,6 +4,7 @@ import { getColors } from '@styles/coreStyles';
 import Header from './Header';
 import Banner from './Banner';
 import HomeWallet from './HomeWallet';
+import Markets from './Markets';
 
 const Home = () => {
   const colors = getColors();
@@ -19,6 +20,7 @@ const Home = () => {
         <Header />
         <Banner />
         <HomeWallet />
+        <Markets />
     </ScrollView>
   );
 };

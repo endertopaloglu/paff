@@ -96,7 +96,7 @@ const SnapContainer = () => {
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const offsetX = event.nativeEvent.contentOffset.x;
-    scrollX.setValue(offsetX); // scrollX'i güncelleyin
+    scrollX.setValue(offsetX);
     const newIndex = Math.floor(offsetX / width);
     setActiveIndex(newIndex);
   };
@@ -108,7 +108,7 @@ const SnapContainer = () => {
         width * index,
         width * (index + 1)
       ],
-      outputRange: [4, 12, 4], // Pasif genişlik, aktif genişlik, pasif genişlik
+      outputRange: [4, 12, 4],
       extrapolate: 'clamp'
     });
   };
@@ -121,7 +121,7 @@ const SnapContainer = () => {
         width * index,
         width * (index + 1)
       ],
-      outputRange: [0.5, 1, 0.5], // Pasif opaklık, aktif opaklık, pasif opaklık
+      outputRange: [0.5, 1, 0.5],
       extrapolate: 'clamp'
     });
   };
@@ -132,7 +132,7 @@ const SnapContainer = () => {
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        onScroll={handleScroll} // Burada doğrudan handleScroll kullanın
+        onScroll={handleScroll}
         scrollEventThrottle={16}
       >
         {slides.map((slide, index) => (
