@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, ScrollView, Dimensions, StyleSheet, Image, NativeSyntheticEvent, NativeScrollEvent, Appearance } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { View, Text, ScrollView, Dimensions, StyleSheet, Image, Animated, NativeSyntheticEvent, NativeScrollEvent, Appearance } from 'react-native';
 import { getColors, typography, distances, radius } from '@styles/coreStyles';
 import ButtonLink from '@components/Buttons/ButtonLink';
 
@@ -29,13 +29,11 @@ const styles = StyleSheet.create({
     height: 4,
     width: 4,
     borderRadius: radius._full,
-    backgroundColor: "rgba(255, 255, 255, 0.20)",
+    backgroundColor: "rgba(143, 166, 60, 1)",
     marginHorizontal: 4,
   },
   paginationDotActive: {
-    width: 12,
-    height: 4,
-    backgroundColor: '#8FA63C',
+    backgroundColor: "rgba(143, 166, 60, 1)",
   },
   paginationContainer: {
     flexDirection: 'row',
@@ -48,6 +46,14 @@ const theme = Appearance.getColorScheme();
 // Dummy data for carousel
 const slides = [
   {
+    title: 'Piyasaları keşfedin',
+    description: "Paribu'da listelenen 100'den fazla kripto varlıkla işlem yapabilirsiniz. ",
+    image: theme === 'dark'
+      ? require('@assets/banner/piyasalar_dark.png')
+      : require('@assets/banner/piyasalar.png'),
+    link: 'Piysalara git',
+  },
+  {
     title: 'Anında alın ve satın',
     description: 'Tek tıkla 100’den fazla kripto varlığı kolayca alıp satabilirsiniz.',
     image: theme === 'dark'
@@ -56,24 +62,68 @@ const slides = [
     link: 'Kolay al/sat',
   },
   {
-    title: 'Piyasaları keşfedin',
-    description: "Paribu'da listelenen 100'den fazla kripto varlıkla işlem yapabilirsiniz. ",
+    title: 'Sinyalleri kaçırmayın',
+    description: 'Piyasalar için alarm kurarak anlık fiyat değişimlerini öğrenebilirsiniz.',
     image: theme === 'dark'
-      ? require('@assets/banner/piyasalar_dark.png')
-      : require('@assets/banner/piyasalar.png'),
-    link: 'Piysalara git',
+      ? require('@assets/banner/alarm_kur_dark.png')
+      : require('@assets/banner/alarm_kur.png'),
+    link: 'Alarm kur',
   },
+  {
+    title: 'İşlemlerinizi takip edin',
+    description: 'Onay bekleyen ve gerçeklemiş tüm işlemlerinizi inceleyebilirsiniz.',
+    image: theme === 'dark'
+      ? require('@assets/banner/islem_takip_dark.png')
+      : require('@assets/banner/islem_takip.png'),
+    link: 'İşlem geçmişine git',
+  },
+  {
+    title: 'Düşük bakiyeleri değerlendirin',
+    description: 'Değeri 10 TL ve altındaki varlıklarınızı dönüştürebilirsiniz.',
+    image: theme === 'dark'
+      ? require('@assets/banner/donustur_dark.png')
+      : require('@assets/banner/donustur.png'),
+    link: 'Şimdi dönüştür',
+  }
   // More slides...
 ];
 
 const SnapContainer = () => {
-  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const colors = getColors();
   const typo = typography();
+  const scrollX = useRef(new Animated.Value(0)).current;
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const newIndex = Math.floor(event.nativeEvent.contentOffset.x / width);
+    const offsetX = event.nativeEvent.contentOffset.x;
+    scrollX.setValue(offsetX); // scrollX'i güncelleyin
+    const newIndex = Math.floor(offsetX / width);
     setActiveIndex(newIndex);
+  };
+
+  const paginationDotWidth = (index: number) => {
+    return scrollX.interpolate({
+      inputRange: [
+        width * (index - 1),
+        width * index,
+        width * (index + 1)
+      ],
+      outputRange: [4, 12, 4], // Pasif genişlik, aktif genişlik, pasif genişlik
+      extrapolate: 'clamp'
+    });
+  };
+
+  // Yeni eklenen opaklık animasyon fonksiyonu
+  const paginationDotOpacity = (index: number) => {
+    return scrollX.interpolate({
+      inputRange: [
+        width * (index - 1),
+        width * index,
+        width * (index + 1)
+      ],
+      outputRange: [0.5, 1, 0.5], // Pasif opaklık, aktif opaklık, pasif opaklık
+      extrapolate: 'clamp'
+    });
   };
 
   return (
@@ -82,7 +132,7 @@ const SnapContainer = () => {
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        onScroll={handleScroll}
+        onScroll={handleScroll} // Burada doğrudan handleScroll kullanın
         scrollEventThrottle={16}
       >
         {slides.map((slide, index) => (
@@ -100,11 +150,14 @@ const SnapContainer = () => {
       </ScrollView>
       <View style={styles.paginationContainer}>
         {slides.map((_, index) => (
-          <View
+          <Animated.View
             key={index}
             style={[
               styles.paginationDot,
-              index === activeIndex ? styles.paginationDotActive : null,
+              { 
+                width: paginationDotWidth(index),
+                opacity: paginationDotOpacity(index) // Opaklık animasyonu
+              }
             ]}
           />
         ))}

@@ -25,7 +25,6 @@ const Header = () => {
   });
 
   return (
-    <View>
       <View style={styles.headerContainer}>
         <Logo width={120} height={24} />
         <View style={{ flexDirection: "row" }}>
@@ -33,7 +32,6 @@ const Header = () => {
           <ButtonIcon icon={<MegaphoneIcon />} style={{ marginLeft: distances._12 }} type='subtle' />
         </View>
       </View>
-    </View>
   );
 };
 

@@ -12,11 +12,11 @@ const Home = () => {
       flex: 1,
     }
   });
-    
+
   return (
     <ScrollView style={styles.mainContainer}>
-    <Header />
-    <Banner />
+        <Header />
+        <Banner />
     </ScrollView>
   );
 };
